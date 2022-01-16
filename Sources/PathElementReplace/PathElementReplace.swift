@@ -11,8 +11,13 @@ import SwiftUI
 
 public extension Shape {
   
-  func replace(innerContent: @escaping (Int, Path.Element) -> Path.Element?) -> some Shape {
-    PathElementReplace(shape: self, innerContent: innerContent)
+  /// Replace a Path.Element at index
+  /// - Parameters:
+  ///   - size: Size of the Path
+  ///   - innerContent: The Path.Element to to replace if required
+  /// - Returns: Shape
+  func replace(size: CGRect, innerContent: @escaping (Int, Path.Element) -> Path.Element?) -> some Shape {
+    PathElementReplace(shape: self, size: size, innerContent: innerContent)
   }
   
 }
@@ -22,9 +27,8 @@ public struct PathElementReplace<S>: Shape where S: Shape {
   private let path: Path
   private let innerContent: (Int, Path.Element) -> Path.Element?
   
-  public init(shape: S, innerContent: @escaping (Int, Path.Element) -> Path.Element?) {
-    
-    self.path = shape.path(in: CGRect.unit)
+  public init(shape: S, size: CGRect, innerContent: @escaping (Int, Path.Element) -> Path.Element?) {
+    self.path = shape.path(in: size)
     self.innerContent = innerContent
   }
   
@@ -32,6 +36,8 @@ public struct PathElementReplace<S>: Shape where S: Shape {
     return generatePath()
   }
   
+  /// For each path element we check to see if that element has been replaced by the user, otherwise, we use the existing element on the path
+  /// - Returns: Path
   private func generatePath() -> Path {
     
     func add(element: Path.Element, to path: inout Path) {
@@ -51,11 +57,11 @@ public struct PathElementReplace<S>: Shape where S: Shape {
     
     return Path { path in
       
-      var counter: Int = 0
+      var elementIndex: Int = 0
       self.path.forEach { element in
-        let e = innerContent(counter, element) ?? element
+        let e = innerContent(elementIndex, element) ?? element
         add(element: e, to: &path)
-        counter += 1
+        elementIndex += 1
       }
       
     }

@@ -17,6 +17,7 @@ extension ExampleSwiftUIView: View {
     VStack(spacing: 24) {
       shape
       shapeWithReplacement
+      circleWithReplacement
     }
   }
   
@@ -28,14 +29,27 @@ extension ExampleSwiftUIView: View {
   
   var shapeWithReplacement: some View {
     Rectangle()
-      .replace { index, element in
+      .replace(size: CGRect(origin: .zero, size: CGSize(width: 100, height: 100))) { index, element in
         if index == 1 {
           return Path.Element.line(to: CGPoint(x: 200, y: 50))
         } else {
           return nil
         }
       }
-      .stroke(Color.red, lineWidth: 2)
+      .stroke(Color.yellow, lineWidth: 2)
+      .frame(width: 100, height: 100)
+  }
+  
+  var circleWithReplacement: some View {
+    Circle()
+      .replace(size: CGRect(origin: .zero, size: CGSize(width: 100, height: 100))) { index, element in
+        if index == 1 {
+          return Path.Element.line(to: CGPoint(x: 200, y: 50))
+        } else {
+          return nil
+        }
+      }
+      .stroke(Color.green, lineWidth: 2)
       .frame(width: 100, height: 100)
   }
   
