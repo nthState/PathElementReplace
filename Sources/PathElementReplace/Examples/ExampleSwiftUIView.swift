@@ -55,8 +55,12 @@ extension ExampleSwiftUIView: View {
   
 }
 
+#if DEBUG
+
 struct SwiftUIView_Previews: PreviewProvider {
   static var previews: some View {
     ExampleSwiftUIView()
   }
 }
+
+#endif
