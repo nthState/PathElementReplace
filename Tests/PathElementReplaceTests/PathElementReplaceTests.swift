@@ -22,7 +22,7 @@ final class PathElementReplaceTests: XCTestCase {
         return nil
       }
       
-      XCTAssertEqual(String(describing: shape.path(in: rect)), String(describing: newShape.path(in: rect)), "Shape should match")
+      XCTAssertEqual(shape.path(in: rect).description, newShape.path(in: rect).description, "Shape should match")
     }
   
   func test_paths_replaced_not_equal() throws {
@@ -38,7 +38,7 @@ final class PathElementReplaceTests: XCTestCase {
       }
     }
     
-    XCTAssertNotEqual(String(describing: shape.path(in: rect)), String(describing: newShape.path(in: rect)), "Shape shouldn't match")
+    XCTAssertNotEqual(shape.path(in: rect).description, newShape.path(in: rect).description, "Shape shouldn't match")
   }
   
 }

@@ -1,0 +1,55 @@
+@Tutorial() {
+  @Intro(title: "Using PathElementReplace") {
+    How to use PathElementReplace
+    
+
+  }
+  
+  @Section(title: "How to use PathElementReplace") {
+    @ContentAndMedia {
+      How to use PathElementReplace
+      
+    }
+    
+    @Steps {
+      @Step {
+        Start with a Shape
+        
+        @Code(name: "PathElementReplace.swift", file: "01_replace.swift") {
+          @Image(source: "01_replace.png", alt: "accessible description")
+        }
+      }
+      
+      @Step {
+        Import the PathElementReplace Swift Package
+        
+        @Code(name: "PathElementReplace.swift", file: "02_replace.swift") {
+          
+        }
+      }
+      
+      @Step {
+        
+        Add the View Modifier
+        
+        We give you the index and the element in a callback
+        
+        
+        @Code(name: "PathElementReplace.swift", file: "03_replace.swift") {
+          @Image(source: "03_replace.png", alt: "accessible description")
+        }
+      }
+      
+      @Step {
+        
+        Replace the 1st `line` element with a new `line` element
+        
+        
+        @Code(name: "PathElementReplace.swift", file: "03_replace.swift") {
+          @Image(source: "03_replace.png", alt: "accessible description")
+        }
+      }
+      
+    }
+  }
+}

@@ -1,13 +1,38 @@
-# ````
+# ``PathElementReplace``
 
-<!--@START_MENU_TOKEN@-->Summary<!--@END_MENU_TOKEN@-->
+Given a Shape, Replace any Element with another Element, or set of Elements
 
 ## Overview
 
-<!--@START_MENU_TOKEN@-->Text<!--@END_MENU_TOKEN@-->
+```
+import PathElementReplace
+
+struct ExampleSwiftUIView {}
+
+extension ExampleSwiftUIView: View {
+  
+  var body: some View {
+    content
+  }
+  
+  var content: some View {
+    Rectangle()
+      .replace(size: CGRect(origin: .zero, size: CGSize(width: 100, height: 100))) { index, element in
+        if index == 1 {
+          return Path.Element.line(to: CGPoint(x: 200, y: 50))
+        } else {
+          return nil
+        }
+      }
+      .stroke(Color.red, lineWidth: 2)
+      .frame(width: 100, height: 100)
+  }
+}
+
+```
 
 ## Topics
 
-### <!--@START_MENU_TOKEN@-->Group<!--@END_MENU_TOKEN@-->
+### Guides
 
-- <!--@START_MENU_TOKEN@-->``Symbol``<!--@END_MENU_TOKEN@-->
+- <doc:Getting-Started-with-PathElementReplace>

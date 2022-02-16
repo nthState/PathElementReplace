@@ -1,10 +1,4 @@
-# Chris's SwiftUI Path Element Replace
-
-Given a Shape, Replace any Element with another Element, or set of Elements
-
-## Overview
-
-```
+import SwiftUI
 import PathElementReplace
 
 struct ExampleSwiftUIView {}
@@ -28,5 +22,3 @@ extension ExampleSwiftUIView: View {
       .frame(width: 100, height: 100)
   }
 }
-
-```
