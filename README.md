@@ -30,3 +30,8 @@ extension ExampleSwiftUIView: View {
 }
 
 ```
+
+| Before | After |
+|--------|-------|
+![Before](Sources/PathElementReplace/PathElementReplace.docc/Resources/Images/01_replace.png)|![After](Sources/PathElementReplace/PathElementReplace.docc/Resources/Images/03_replace.png)
+
