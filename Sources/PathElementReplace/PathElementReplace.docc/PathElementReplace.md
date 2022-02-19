@@ -4,6 +4,11 @@ Given a Shape, Replace any Element with another Element, or set of Elements
 
 ## Overview
 
+| Before | After |
+|--------|-------|
+![Before](01_replace.png)|![After](03_replace.png)
+
+
 ```
 import PathElementReplace
 
