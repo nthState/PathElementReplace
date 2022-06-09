@@ -1,4 +1,4 @@
-@Tutorials(name: "aa") {
+@Tutorials(name: "Chris") {
     @Intro(title: "Guide on using PathElementReplace") {
         Guides on replacing an Element in a Shape
 
